@@ -13,7 +13,7 @@ namespace ListViewCompleteGuide
 		{
 			InitializeComponent();
 
-			MainPage = new ListViewCompleteGuide.MainPage();
+			MainPage = new MasterDetailNav();
 		}
 
 		protected override void OnStart ()

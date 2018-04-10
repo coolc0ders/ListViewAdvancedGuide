@@ -13,7 +13,6 @@ namespace ListViewCompleteGuide.Behaviors
 
         public static readonly BindableProperty EventNameProperty = BindableProperty.Create("EventName", typeof(string), typeof(EventToCommandBehavior), null, propertyChanged: OnEventNameChanged);
         public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(EventToCommandBehavior), null);
-        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(EventToCommandBehavior), null);
         public static readonly BindableProperty InputConverterProperty = BindableProperty.Create("Converter", typeof(IValueConverter), typeof(EventToCommandBehavior), null);
 
         public string EventName
@@ -28,11 +27,6 @@ namespace ListViewCompleteGuide.Behaviors
             set { SetValue(CommandProperty, value); }
         }
 
-        public object CommandParameter
-        {
-            get { return GetValue(CommandParameterProperty); }
-            set { SetValue(CommandParameterProperty, value); }
-        }
 
         //EventItemToMenuItemConverter _converter = new EventItemToMenuItemConverter();
         public IValueConverter Converter
@@ -95,16 +89,11 @@ namespace ListViewCompleteGuide.Behaviors
 
         void OnEvent(object sender, object eventArgs)
         {
-            if (Command == null)
-            {
-                return;
-            }
+            object resolvedParameter = new object();
 
-            object resolvedParameter;
-            if (CommandParameter != null)
-            {
-                resolvedParameter = CommandParameter;
-            }
+            if (Command == null)
+                return;
+            
             else if (Converter != null)
             {
                 resolvedParameter = Converter.Convert(eventArgs, typeof(object), null, null);
@@ -129,6 +118,7 @@ namespace ListViewCompleteGuide.Behaviors
                 Command.Execute(resolvedParameter);
             }
         }
+
 
         static void OnEventNameChanged(BindableObject bindable, object oldValue, object newValue)
         {

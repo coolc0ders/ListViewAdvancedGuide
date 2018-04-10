@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListViewCompleteGuide.MasterDetailNavMaster"
              xmlns:viewModel="clr-namespace:ListViewCompleteGuide.ViewModels"
+             xmlns:behaviors="clr-namespace:ListViewCompleteGuide.Behaviors"
              Title="Master">
 
     <ContentPage.BindingContext>
@@ -14,6 +15,14 @@
               SeparatorVisibility="None"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
+
+            <ListView.Behaviors>
+
+                <behaviors:EventToCommandBehavior Command="{Binding NavigationItemSelectedCommand}"
+                                                  EventName="ItemTapped"/>
+
+            </ListView.Behaviors>
+        
       <ListView.Header>
         <Grid BackgroundColor="#03A9F4">
           <Grid.ColumnDefinitions>
@@ -30,7 +39,7 @@
           <Label
               Grid.Column="1"
               Grid.Row="2"
-              Text="AppName"
+              Text="ListView Complete Demo"
               Style="{DynamicResource SubtitleStyle}"/>
         </Grid>
       </ListView.Header>

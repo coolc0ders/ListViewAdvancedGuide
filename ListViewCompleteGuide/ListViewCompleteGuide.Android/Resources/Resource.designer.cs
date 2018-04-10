@@ -26,6 +26,7 @@ namespace ListViewCompleteGuide.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Splat.Resource.String.library_name = global::ListViewCompleteGuide.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::ListViewCompleteGuide.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -2192,8 +2193,26 @@ namespace ListViewCompleteGuide.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
+			// aapt resource value: 0x7f02010e
+			public const int avd_hide_password_1 = 2130837774;
+			
+			// aapt resource value: 0x7f02010f
+			public const int avd_hide_password_2 = 2130837775;
+			
+			// aapt resource value: 0x7f020110
+			public const int avd_hide_password_3 = 2130837776;
+			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
+			
+			// aapt resource value: 0x7f020111
+			public const int avd_show_password_1 = 2130837777;
+			
+			// aapt resource value: 0x7f020112
+			public const int avd_show_password_2 = 2130837778;
+			
+			// aapt resource value: 0x7f020113
+			public const int avd_show_password_3 = 2130837779;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -3708,6 +3727,9 @@ namespace ListViewCompleteGuide.Droid
 			
 			// aapt resource value: 0x7f090038
 			public const int character_counter_pattern = 2131296312;
+			
+			// aapt resource value: 0x7f09003e
+			public const int library_name = 2131296318;
 			
 			// aapt resource value: 0x7f090000
 			public const int mr_button_content_description = 2131296256;

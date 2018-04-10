@@ -17,6 +17,7 @@ namespace ListViewCompleteGuide
         public ContactsPage()
         {
             InitializeComponent();
+            Title = "Contacts";
 
             Items = new ObservableCollection<string>
             {

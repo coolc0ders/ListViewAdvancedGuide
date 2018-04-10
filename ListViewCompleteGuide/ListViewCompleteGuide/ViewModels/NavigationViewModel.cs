@@ -1,15 +1,15 @@
-﻿using ReactiveUI;
+﻿using ListViewCompleteGuide.Services;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using Xamarin.Forms;
 
 namespace ListViewCompleteGuide.ViewModels
 {
     public class NavigationViewModel : ReactiveObject
     {
-        public ReactiveCommand NavigationItemSelectedCommand { get; private set; }
+        public RelayCommand<MasterDetailNavMenuItem> NavigationItemSelectedCommand { get; private set; }
         public ObservableCollection<MasterDetailNavMenuItem> MenuItems { get; set; }
 
         public NavigationViewModel()
@@ -20,17 +20,9 @@ namespace ListViewCompleteGuide.ViewModels
                 new MasterDetailNavMenuItem{Title = "Todos", Id = 2}
             };
 
-            NavigationItemSelectedCommand = ReactiveCommand.Create<MasterDetailNavMenuItem>((n) =>
+            NavigationItemSelectedCommand = new RelayCommand<MasterDetailNavMenuItem>((n) =>
             {
-                if(n.Id == 1)
-                {
-                    (App.Current.MainPage as MasterDetailPage).Master = new ContactsPage();
-                }
-                else
-                {
-                    (App.Current.MainPage as MasterDetailPage).Master = new TodoItemPage();
-                }
-                ;
+                NavigationService.Navigate(n);
             });
         }
     }

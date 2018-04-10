@@ -18,6 +18,8 @@ namespace ListViewCompleteGuide
         {
             InitializeComponent();
 
+            Title = "Todos";
+
             Items = new ObservableCollection<string>
             {
                 "Item 1",

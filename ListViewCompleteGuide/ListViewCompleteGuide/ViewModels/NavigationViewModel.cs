@@ -9,7 +9,7 @@ namespace ListViewCompleteGuide.ViewModels
 {
     public class NavigationViewModel : ReactiveObject
     {
-        public RelayCommand<MasterDetailNavMenuItem> NavigationItemSelectedCommand { get; private set; }
+        public ReactiveCommand NavigationItemSelectedCommand { get; private set; }
         public ObservableCollection<MasterDetailNavMenuItem> MenuItems { get; set; }
 
         public NavigationViewModel()
@@ -20,7 +20,7 @@ namespace ListViewCompleteGuide.ViewModels
                 new MasterDetailNavMenuItem{Title = "Todos", Id = 2}
             };
 
-            NavigationItemSelectedCommand = new RelayCommand<MasterDetailNavMenuItem>((n) =>
+            NavigationItemSelectedCommand = ReactiveCommand.Create<MasterDetailNavMenuItem>((n) =>
             {
                 NavigationService.Navigate(n);
             });

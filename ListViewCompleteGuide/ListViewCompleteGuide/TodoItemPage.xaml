@@ -3,20 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListViewCompleteGuide.TodoItemPage"
              xmlns:viewModel="clr-namespace:ListViewCompleteGuide.ViewModels"
-             Title="Todos">
+             Title="Todos"
+             xmlns:dataTemplateSelector="clr-namespace:ListViewCompleteGuide.DataTemplateSelectors">
 
     <ContentPage.BindingContext>
         <viewModel:TodoViewModel/>
     </ContentPage.BindingContext>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <dataTemplateSelector:TodoTemplateSelector x:Key="TemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ListView x:Name="MyListView"
             ItemsSource="{Binding Todos}"
             SelectedItem="{Binding SelectedTodo}"
+              ItemTemplate="{StaticResource TemplateSelector}"
             CachingStrategy="RecycleElement">
 
         <!--Custom View Cells-->
 
-        <ListView.ItemTemplate>
+        <!--<ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell IsEnabled="{Binding IsEnabled}">
                     <StackLayout Orientation="Horizontal">
@@ -25,7 +33,7 @@
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
-        </ListView.ItemTemplate>
+        </ListView.ItemTemplate>-->
 
     </ListView>
 </ContentPage>

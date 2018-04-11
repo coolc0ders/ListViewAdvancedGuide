@@ -11,10 +11,26 @@ namespace ListViewCompleteGuide.DataTemplates
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CompletedTodoTemplate : ViewCell
-	{
-		public CompletedTodoTemplate ()
+    {
+        public static readonly BindableProperty BaseContextProperty =
+              BindableProperty.Create("BaseContext", typeof(object), typeof(CompletedTodoTemplate), null, propertyChanged: OnParentContextPropertyChanged);
+
+        public object BaseContext
+        {
+            get { return GetValue(BaseContextProperty); }
+            set { SetValue(BaseContextProperty, value); }
+        }
+
+        public CompletedTodoTemplate ()
 		{
 			InitializeComponent ();
 		}
-	}
+        private static void OnParentContextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue != oldValue && newValue != null)
+            {
+                (bindable as CompletedTodoTemplate).BaseContext = newValue;
+            }
+        }
+    }
 }

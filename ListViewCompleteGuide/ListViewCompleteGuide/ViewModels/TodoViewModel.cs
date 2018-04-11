@@ -31,7 +31,7 @@ namespace ListViewCompleteGuide.ViewModels
             Todos.Add(new Todo { IsDone = false, Title = "Go to Sleep" });
             Todos.Add(new Todo { IsDone = false, Title = "Go get some dinner" });
             Todos.Add(new Todo { IsDone = false, Title = "Watch GOT" });
-            Todos.Add(new Todo { IsDone = false, Title = "Code code and code!!!!" });
+            Todos.Add(new Todo { IsDone = true, Title = "Code code and code!!!!" });
 
             ///Lets detect when ever a todo Item is marked as done 
             ///IF it is, it is sent to the bottom of the list

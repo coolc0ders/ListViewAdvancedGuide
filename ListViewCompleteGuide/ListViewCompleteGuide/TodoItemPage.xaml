@@ -19,8 +19,12 @@
                 <DataTemplate x:Key="CurrentTodoDataTemplate">
                     <dataTemplates:CurrentTodoTemplate BaseContext="{Binding BindingContext, Source={x:Reference TodoPage}}"/>
                 </DataTemplate>
-
-                <dataTemplateSelector:TodoTemplateSelector x:Key="TemplateSelector" PrimaryItemTemplate="{StaticResource CurrentTodoDataTemplate}"/>
+                <DataTemplate x:Key="CompletedTodoDataTemplate">
+                    <dataTemplates:CompletedTodoTemplate BaseContext="{Binding BindingContext, Source={x:Reference TodoPage}}"/>
+                </DataTemplate>
+                <dataTemplateSelector:TodoTemplateSelector x:Key="TemplateSelector"
+                                                           PrimaryItemTemplate="{StaticResource CurrentTodoDataTemplate}"
+                                                           SecondaryItemTemplate="{StaticResource CompletedTodoDataTemplate}"/>
             </ResourceDictionary>
         </Grid.Resources>
         

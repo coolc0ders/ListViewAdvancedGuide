@@ -10,13 +10,7 @@ namespace ListViewCompleteGuide.DataTemplateSelectors
     public class TodoTemplateSelector : DataTemplateSelector
     {
         public DataTemplate PrimaryItemTemplate { get; set; }
-        DataTemplate SecondaryItemTemplate;
-
-        public TodoTemplateSelector()
-        {
-            //PrimaryItemTemplate = new DataTemplate(typeof(CurrentTodoTemplate));
-            SecondaryItemTemplate = new DataTemplate(typeof(CompletedTodoTemplate));
-        }
+        public DataTemplate SecondaryItemTemplate { get; set; }
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {

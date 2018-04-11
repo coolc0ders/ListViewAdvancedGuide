@@ -22,6 +22,7 @@ namespace ListViewCompleteGuide.ViewModels
             set => this.RaiseAndSetIfChanged(ref _selectedTodo, value);
         }
 
+        public ReactiveCommand DeleteTodoCommand { get; private set; }
 
         public TodoViewModel()
         {
@@ -45,6 +46,11 @@ namespace ListViewCompleteGuide.ViewModels
                         Todos.Add(x);
                     }
                 });
+
+           DeleteTodoCommand = ReactiveCommand.Create<Todo>(t =>
+           {
+               Todos.Remove(t);
+           });
         }
     }
 }

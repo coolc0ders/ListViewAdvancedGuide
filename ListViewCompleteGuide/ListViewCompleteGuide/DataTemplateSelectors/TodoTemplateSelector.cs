@@ -9,12 +9,12 @@ namespace ListViewCompleteGuide.DataTemplateSelectors
 {
     public class TodoTemplateSelector : DataTemplateSelector
     {
-        DataTemplate PrimaryItemTemplate;
+        public DataTemplate PrimaryItemTemplate { get; set; }
         DataTemplate SecondaryItemTemplate;
 
         public TodoTemplateSelector()
         {
-            PrimaryItemTemplate = new DataTemplate(typeof(CurrentTodoTemplate));
+            //PrimaryItemTemplate = new DataTemplate(typeof(CurrentTodoTemplate));
             SecondaryItemTemplate = new DataTemplate(typeof(CompletedTodoTemplate));
         }
 

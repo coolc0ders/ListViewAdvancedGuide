@@ -4,36 +4,32 @@
              x:Class="ListViewCompleteGuide.TodoItemPage"
              xmlns:viewModel="clr-namespace:ListViewCompleteGuide.ViewModels"
              Title="Todos"
+             x:Name="TodoPage"
+             xmlns:dataTemplates="clr-namespace:ListViewCompleteGuide.DataTemplates"
              xmlns:dataTemplateSelector="clr-namespace:ListViewCompleteGuide.DataTemplateSelectors">
 
     <ContentPage.BindingContext>
-        <viewModel:TodoViewModel/>
+        <viewModel:TodoViewModel />
     </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <dataTemplateSelector:TodoTemplateSelector x:Key="TemplateSelector"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
 
-    <ListView x:Name="MyListView"
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <DataTemplate x:Key="CurrentTodoDataTemplate">
+                    <dataTemplates:CurrentTodoTemplate BaseContext="{Binding BindingContext, Source={x:Reference TodoPage}}"/>
+                </DataTemplate>
+
+                <dataTemplateSelector:TodoTemplateSelector x:Key="TemplateSelector" PrimaryItemTemplate="{StaticResource CurrentTodoDataTemplate}"/>
+            </ResourceDictionary>
+        </Grid.Resources>
+        
+        <ListView x:Name="MyListView"
             ItemsSource="{Binding Todos}"
             SelectedItem="{Binding SelectedTodo}"
               ItemTemplate="{StaticResource TemplateSelector}"
             CachingStrategy="RecycleElement">
 
-        <!--Custom View Cells-->
-
-        <!--<ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell IsEnabled="{Binding IsEnabled}">
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding Title}" Style="{DynamicResource ListItemTextStyle}" HorizontalOptions="Start"/>
-                        <Switch IsToggled="{Binding IsDone}" HorizontalOptions="End" IsEnabled="{Binding IsEnabled}"/>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>-->
-
-    </ListView>
+        </ListView>
+    </Grid>
 </ContentPage>

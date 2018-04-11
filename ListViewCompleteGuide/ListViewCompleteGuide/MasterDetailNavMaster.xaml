@@ -4,6 +4,7 @@
              x:Class="ListViewCompleteGuide.MasterDetailNavMaster"
              xmlns:viewModel="clr-namespace:ListViewCompleteGuide.ViewModels"
              xmlns:behaviors="clr-namespace:ListViewCompleteGuide.Behaviors"
+             
              Title="Master">
 
     <ContentPage.BindingContext>

@@ -2,7 +2,8 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListViewCompleteGuide.MasterDetailNav"
-             xmlns:pages="clr-namespace:ListViewCompleteGuide">
+             xmlns:pages="clr-namespace:ListViewCompleteGuide"
+                  MasterBehavior="Popover">
   <MasterDetailPage.Master>
     <pages:MasterDetailNavMaster x:Name="MasterPage" />
   </MasterDetailPage.Master>

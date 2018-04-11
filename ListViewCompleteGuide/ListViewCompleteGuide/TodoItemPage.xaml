@@ -2,34 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListViewCompleteGuide.TodoItemPage"
+             xmlns:viewModel="clr-namespace:ListViewCompleteGuide.ViewModels"
              Title="Todos">
-    
-  <ListView x:Name="MyListView"
-            ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
+
+    <ContentPage.BindingContext>
+        <viewModel:TodoViewModel/>
+    </ContentPage.BindingContext>
+
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding Todos}"
+            SelectedItem="{Binding SelectedTodo}"
             CachingStrategy="RecycleElement">
-            
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding .}" />
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+
+        <!--Custom View Cells-->
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell IsEnabled="{Binding IsEnabled}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Title}" Style="{DynamicResource ListItemTextStyle}" HorizontalOptions="Start"/>
+                        <Switch IsToggled="{Binding IsDone}" HorizontalOptions="End" IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
 </ContentPage>

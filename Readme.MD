@@ -1,4 +1,4 @@
-### Xamarin.Forms ListView Advanced Guide with MVVM
+# Xamarin.Forms ListView Advanced Guide with MVVM
 
 This repository contains a demonstration of some advanced uses of the List View in Xamarin.Forms, with MVVM. Reactiveui is used to implement MVVM in this demo. These are the features which are demonstrated in this demo:
 

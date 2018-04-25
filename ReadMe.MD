@@ -8,4 +8,4 @@ This repository contains a demonstration of some advanced uses of the List View 
 - Data template selection
 - ListView Grouping
 
-## For a detailed explanation of how these where implemented in the demo, check : [this post at Cool Coders](https://doumer.me/xamarin-forms-listview-advanced-guide-with-mvvm/)
+## For a detailed explanation on how these where implemented in the demo, check : [this post at Cool Coders](https://doumer.me/xamarin-forms-listview-advanced-guide-with-mvvm/)
